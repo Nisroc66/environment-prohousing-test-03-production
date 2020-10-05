@@ -22,3 +22,23 @@ jenkins:
   Servers:
     Global: {}
 prow: {}
+istio-prod:
+  istio:
+    enabled: true
+jenkins:
+  Servers:
+    Global: {}
+service1:
+  hpa:
+    enabled: true
+  istio:
+    enabled: true
+    gateway: jx-istio-prod
+    path: /service1
+service2:
+  hpa:
+    enabled: true
+  istio:
+    enabled: true
+    gateway: jx-istio-prod
+    path: /service2
