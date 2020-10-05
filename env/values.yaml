@@ -33,12 +33,12 @@ service1:
     enabled: true
   istio:
     enabled: true
-    gateway: jx-istio-prod
+    gateway: istio-prod
     path: /service1
 service2:
   hpa:
     enabled: true
   istio:
     enabled: true
-    gateway: jx-istio-prod
+    gateway: istio-prod
     path: /service2
