@@ -1,0 +1,69 @@
+
+Showing logs for build [32mnisroc66-environment-prohousing-6wjmb-7[0m stage [32mfrom-build-pack[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1601977311.7806358,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32mnisroc66-environment-prohousing-6wjmb-7[0m stage [32mfrom-build-pack[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32mnisroc66-environment-prohousing-6wjmb-7[0m stage [32mfrom-build-pack[0m and container [32mplace-tools[0m
+
+Showing logs for build [32mnisroc66-environment-prohousing-6wjmb-7[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-nisroc66-environment-prohousing-6wjmb-pf85x[0m
+{"level":"info","ts":1601977320.4814308,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/Nisroc66/environment-prohousing-test-03-production.git @ v0.0.7 in path /workspace/source"}
+{"level":"warn","ts":1601977320.481537,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1601977320.5252788,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32mnisroc66-environment-prohousing-6wjmb-7[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32mnisroc66-environment-prohousing-6wjmb-7[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:a327ca5b2782927c36648aceb5e1b6bbaf6b6946
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mnisroc66-environment-prohousing-6wjmb-7[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /tekton/home/git/credentials
+
+Showing logs for build [32mnisroc66-environment-prohousing-6wjmb-7[0m stage [32mfrom-build-pack[0m and container [32mstep-build-helm-apply[0m
+Modified file /workspace/source/env/Chart.yaml to set the chart to version 7
+creating the lock configmap **-lock-**-production
+lock configmap **-lock-**-production created
+Ignoring templates/.gitignore
+Ignoring templates/wildcardcert-secret.yaml
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io
+Successfully added Helm repository chartmuseum.jenkins-x.io.
+cleaning the lock configmap **-lock-**-production
+error: upgrading helm chart '.': failed to run 'kubectl apply --recursive -f /tmp/helm-template-workdir-380988264/**/output/namespaces/**-production -l jenkins.io/chart-release=** --namespace **-production --wait --validate=false' command in directory '/tmp/**-helm-apply-473576158/env', output: 'role.rbac.authorization.k8s.io/cleanup configured
+rolebinding.rbac.authorization.k8s.io/cleanup configured
+serviceaccount/cleanup configured
+configmap/exposecontroller configured
+role.rbac.authorization.k8s.io/expose configured
+rolebinding.rbac.authorization.k8s.io/expose configured
+serviceaccount/expose configured
+deployment.apps/**-istio-prod configured
+release.jenkins.io/istio-prod-0.0.4 configured
+service/istio-prod configured
+virtualservice.networking.istio.io/**-istio-prod-vs configured
+deployment.apps/**-service1 configured
+horizontalpodautoscaler.autoscaling/**-service1 configured
+virtualservice.networking.istio.io/**-service1-vs configured
+release.jenkins.io/service1-0.0.4 configured
+service/service1 configured
+deployment.apps/**-service2 configured
+horizontalpodautoscaler.autoscaling/**-service2 configured
+virtualservice.networking.istio.io/**-service2-vs configured
+release.jenkins.io/service2-0.0.4 configured
+service/service2 configured
+Error from server: error when applying patch:
+{"metadata":{"annotations":{"kubectl.kubernetes.io/last-applied-configuration":"{\"apiVersion\":\"networking.istio.io/v1alpha3\",\"kind\":\"Gateway\",\"metadata\":{\"annotations\":{\"jenkins.io/chart\":\"env\"},\"labels\":{\"jenkins.io/chart-release\":\"**\",\"jenkins.io/namespace\":\"**-production\",\"jenkins.io/version\":\"7\"},\"name\":\"**-istio-prod\",\"namespace\":\"**-production\"},\"spec\":{\"hosts\":[\"*\"],\"selector\":{\"istio\":\"ingressgateway\"},\"servers\":[{\"name\":\"http\",\"number\":80,\"port\":null,\"protocol\":\"HTTP\"}]}}\n"},"labels":{"jenkins.io/version":"7"}},"spec":{"hosts":["*"],"servers":[{"name":"http","number":80,"protocol":"HTTP"}]}}
+to:
+Resource: "networking.istio.io/v1alpha3, Resource=gateways", GroupVersionKind: "networking.istio.io/v1alpha3, Kind=Gateway"
+Name: "**-istio-prod", Namespace: "**-production"
+Object: &{map["apiVersion":"networking.istio.io/v1alpha3" "kind":"Gateway" "metadata":map["creationTimestamp":"2020-10-05T12:12:56Z" "selfLink":"/apis/networking.istio.io/v1alpha3/namespaces/**-production/gateways/**-istio-prod" "annotations":map["jenkins.io/chart":"env" "kubectl.kubernetes.io/last-applied-configuration":"{\"apiVersion\":\"networking.istio.io/v1alpha3\",\"kind\":\"Gateway\",\"metadata\":{\"annotations\":{\"jenkins.io/chart\":\"env\"},\"labels\":{\"jenkins.io/chart-release\":\"**\",\"jenkins.io/namespace\":\"**-production\",\"jenkins.io/version\":\"5\"},\"name\":\"**-istio-prod\",\"namespace\":\"**-production\"},\"spec\":{\"selector\":{\"istio\":\"ingressgateway\"},\"servers\":[{\"hosts\":[\"*\"],\"port\":{\"name\":\"http\",\"number\":80,\"protocol\":\"HTTP\"},\"tls\":{\"httpsRedirect\":true}},{\"hosts\":[\"*\"],\"port\":{\"name\":\"https\",\"number\":443,\"protocol\":\"HTTPS\"},\"tls\":{\"mode\":\"SIMPLE\",\"privateKey\":\"/etc/istio/ingressgateway-certs/tls.key\",\"serverCertificate\":\"/etc/istio/ingressgateway-certs/tls.crt\"}}]}}\n"] "generation":'\x01' "labels":map["jenkins.io/chart-release":"**" "jenkins.io/namespace":"**-production" "jenkins.io/version":"5"] "name":"**-istio-prod" "namespace":"**-production" "resourceVersion":"22837" "uid":"7806a868-0412-4f47-b17e-2d83f06d1793"] "spec":map["servers":[map["hosts":["*"] "port":map["protocol":"HTTP" "name":"http" "number":'P'] "tls":map["httpsRedirect":%!q(bool=true)]] map["hosts":["*"] "port":map["number":'\u01bb' "protocol":"HTTPS" "name":"https"] "tls":map["mode":"SIMPLE" "privateKey":"/etc/istio/ingressgateway-certs/tls.key" "serverCertificate":"/etc/istio/ingressgateway-certs/tls.crt"]]] "selector":map["istio":"ingressgateway"]]]}
+for: "/tmp/helm-template-workdir-380988264/**/output/namespaces/**-production/env/charts/istio-prod/templates/part0-istio.yaml": admission webhook "pilot.validation.istio.io" denied the request: configuration is invalid: 2 errors occurred:
+	* server config must contain at least one host
+	* port is required'
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-helm-apply'. The execution of the pipeline has stopped.[0m
